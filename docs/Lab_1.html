@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>IS17: Lesson 1</title>
+    </head>
+    <body>
+        <h2>My Google Map</h2>
+        <iframe src="https://www.google.com/maps/d/embed?mid=1O86jTYiPPLBnaxgggDZGmJ3UO4Lk2qs&ehbc=2E312F" width="640" height="480"></iframe>
+	   <h2>My ArcGIS Online Map</h2>
+        <!-- Add script to the <head> of your page to load the embeddable map component -->
+<script type="module" src="https://js.arcgis.com/embeddable-components/4.32/arcgis-embeddable-components.esm.js"></script>
+<!-- Add custom element to <body> of your page -->
+ <arcgis-embedded-map style="height:600px;width:700px;" item-id="916f28c016654d4b862333cf2e3393f9" theme="light" legend-enabled portal-url="https://arts-sciences.maps.arcgis.com" ></arcgis-embedded-map>
+    </body>
+</html>

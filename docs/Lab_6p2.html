@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Customizing a basemap and adding a kml layer</title>
+<style>
+  html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+<link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css">
+<script src="https://js.arcgis.com/4.32/"></script>
+<script>
+    require([
+        "esri/Map",
+       "esri/views/MapView",
+        "esri/layers/VectorTileLayer",
+        "esri/layers/KMLLayer"
+    ], function(Map, MapView, VectorTileLayer, KMLLayer){
+        
+var myMap = new Map();
+
+var myView = new MapView({
+container: "viewDiv",
+map: myMap,
+center: [-88.9, 13.5],
+scale: 1600000
+});
+      
+var myBasemap = new VectorTileLayer({
+    url: "https://arts-sciences.maps.arcgis.com/sharing/rest/content/items/7cca1d9e1499428b9c5734d44a2a0652/resources/styles/root.json?f=pjson&token=3NKHt6i2urmWtqOuugvr9ZSsys-Tk2Uuu5zAeoW12wjEj3Q0jGZRHdnR-HexBvG3Wx88jYlZ7rQamHztvTgBnaw6tSubkStypIvsd4ZUXqQZ-jxUK6xfat4dYbD3pK9CU4xqruilFjBqpvcmoaqROBUprr5F7RJifpiAEK_Rkh0NxPmJoKH3Esq00jd-ElEAP1DPe__cm6VoJvN9DTRy3EdAqy318uOLHgpoynXXo6fvx1FPs4ozEHKPRdXkj7ID"
+          });
+    myMap.add(myBasemap);
+        
+        var myMines = 
+        "https://dl.dropboxusercontent.com/scl/fi/94pqd1h8zkvj0cxmj30tv/MinesES.kml?rlkey=c0lwraw551vt5hw6csfzo3m8b&st=7w9h9rxy&dl=0";
+        
+    var mines = new KMLLayer({
+                 url:myMines,
+             });
+              myMap.add(mines);
+        
+    });
+    </script>
+ </head>
+<body>
+<div id="viewDiv"></div>
+</body>
+</html>
